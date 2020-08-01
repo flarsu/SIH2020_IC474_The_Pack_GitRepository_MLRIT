@@ -42,17 +42,15 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    console.log(data);
     this.addService.login(data).subscribe((res: any) => {
-      console.log(res);
       if (res.success){
         this.messageService.add({
           severity: 'success',
           summary: 'Congratulations! Now you can login.',
         });
+        this.router.navigate(['mode']);
         localStorage.setItem('token', res.token);
         this.reset();
-        this.router.navigate(['mode']);
       }}, (error) => {
       this.messageService.add({
         severity: 'error',

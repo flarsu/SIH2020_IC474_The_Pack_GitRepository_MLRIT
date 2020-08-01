@@ -1,21 +1,21 @@
 <p-sidebar [(visible)]="display" >
   <h2>Dashboard</h2>
-  <button class="btn btn-success form-control" style="border-radius: 0">
+  <button class="btn btn-success form-control" style="border-radius: 0" routerLink="/mode">
     Home
   </button>
   <button class="btn btn-success form-control" style="border-radius: 0">
     Profile
   </button>
-  <button class="btn btn-success form-control" style="border-radius: 0">
+  <button class="btn btn-success form-control" style="border-radius: 0" routerLink="/performance">
     Performance
   </button>
-  <button class="btn btn-success form-control" style="border-radius: 0">
+  <button class="btn btn-success form-control" style="border-radius: 0" routerLink="/study">
     Study Mode
   </button>
-  <button class="btn btn-success form-control" style="border-radius: 0">
+  <button class="btn btn-success form-control" style="border-radius: 0" routerLink="/learn">
     Learn Mode
   </button><br><br>
-  <button class="btn btn-warning form-control">
+  <button class="btn btn-warning form-control" (click)="logout()">
     Log Out
   </button><br><br><br><br><br>
   <img src="assets/question.png" height="300px"/><br><br><br><br><br>
@@ -23,7 +23,14 @@
 </p-sidebar>
 <div class="grad">
   <button type="text" class="float-left btn-sty" (click)="displayChange();" pButton icon="pi pi-bars"></button>
-  <button type="text" class="float-right btn-sty" pButton icon="pi pi-sign-out"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button type="text" class="float-right btn-sty" pButton icon="pi pi-envelope"></button>
+  <button type="text" class="float-right btn-sty" pButton icon="pi pi-sign-out" (click)="logout()"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="text" class="float-right btn-sty" pButton icon="pi pi-envelope" ></button>
   <br><br>
 </div>
+<div class="grad" style="height: 20%;color: white;">
+  <img class="centered-left" src="https://img.icons8.com/bubbles/100/000000/cloud-account-login-male.png"/>
+  <br><br><br>
+  <h2 class="centered-left">Hi Satya Prakash</h2><br>
+  <h5 class="centered-left">Lucknow, Uttar Pradesh</h5>
+</div>
+

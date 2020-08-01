@@ -1,0 +1,35 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<app-navbar></app-navbar>
+
+<br>
+<div class="container">
+<p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
+              multiple="multiple" accept="image/*" maxFileSize="1000000">
+  <ng-template pTemplate="content">
+    <ul *ngIf="uploadedFiles.length">
+      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+    </ul>
+  </ng-template>
+</p-fileUpload>
+<div class="p-3">
+<button pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;"
+>
+  Generate Summary
+</button>
+</div>
+</div>
+<div class="container text-center p-4">
+  <span>Summmary</span>
+  <br>
+  <br>
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+  </p>
+</div>

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {NavbarComponent} from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-mode-page',
@@ -13,9 +12,5 @@ public display = false;
 
   ngOnInit(): void {
 
-  }
-
-  public displayChange() {
-    this.display = !this.display;
   }
 }

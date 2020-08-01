@@ -1,0 +1,53 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+<app-navbar></app-navbar>
+<br>
+<div class="container p-2">
+  <div style="padding-top: 0px">
+  <span class="first">Choose the language in which you want your text </span>
+  <p-dropdown
+    [options]="cities"
+    [(ngModel)]="selectedCity"
+    placeholder="Select a Language"
+    optionLabel="name"
+    [showClear]="true"
+  >
+
+  </p-dropdown>
+
+  <p>Selected Language: {{selectedCity ? selectedCity.name : 'none'}}</p>
+  </div>
+  <br>
+
+<p-fileUpload name="demo[]" (onUpload)="onUpload($event)"
+              multiple=false accept="image/*" maxFileSize="1000000">
+  <ng-template pTemplate="content">
+    <ul *ngIf="uploadedFiles.length">
+      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+    </ul>
+  </ng-template>
+</p-fileUpload>
+  <br>
+  <div class="p-3">
+  <button pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;"
+  >
+    Translate
+  </button>
+  </div>
+</div>
+<br>
+<div class="container text-center p-4">
+  <span>Translated Text</span>
+  <br>
+  <br>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+  quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+  quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+  quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
+  quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+</p>
+</div>
