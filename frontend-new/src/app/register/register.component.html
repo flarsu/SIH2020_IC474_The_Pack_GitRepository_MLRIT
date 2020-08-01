@@ -1,0 +1,84 @@
+<p-toast></p-toast>
+<div
+  style="
+    background-image: url('./assets/laptop.jpg');
+    height: 100%;
+    color: white;
+    background-size: contain;
+  "
+>
+  <div class="container centered" style="text-align: center;">
+    <h1
+      style="
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-size: 40px;
+        font-family: 'Comic Sans MS';
+      "
+    >
+      Eureka 1.0
+    </h1>
+    <br />
+    <img
+      src="https://img.icons8.com/bubbles/100/000000/cloud-account-login-male.png"
+    />
+    <form (ngSubmit)="signUp()" [formGroup]="registerForm">
+      <span class="ui-float-label">
+        <input
+          type="text"
+          class="form-control"
+          size="30"
+          pInputText
+          formControlName="username"
+        />
+        <label>Username</label> </span
+      ><br />
+      <span class="ui-float-label">
+        <input type="email" class="form-control" size="30" pInputText  formControlName="email"/>
+        <label>Email</label> </span
+      ><br />
+      <span class="ui-float-label">
+        <input
+          type="text"
+          class="form-control"
+          size="30"
+          pInputText
+          formControlName="fullName"
+        />
+        <label>Full Name</label> </span
+      ><br />
+      <input
+        pPassword
+        placeholder="Password"
+        type="password"
+        class="form-control"
+        formControlName="password"
+      /><br />
+      <input
+        pPassword
+        placeholder="Confirm Password"
+        type="password"
+        class="form-control"
+        formControlName="cnfPassword"
+      /><br />
+      <button
+        pButton
+        type="submit"
+        class="ui-button-raised ui-button-rounded form-control"
+        style="font-weight: bold;"
+      >
+        Sign Up
+      </button>
+    </form>
+    <br /><br /><br /><br /><br /><br /><br />
+    <span class="border-bottom" style="font-weight: bold; letter-spacing: 1px;"
+      >Already have an account?<a
+        [routerLink]="['/login']"
+        routerLinkActive="router-link-active"
+        style="color: red;"
+      >
+        Login</a
+      ></span
+    >
+  </div>
+</div>

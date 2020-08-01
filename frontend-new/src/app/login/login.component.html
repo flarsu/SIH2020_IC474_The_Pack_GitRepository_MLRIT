@@ -1,0 +1,66 @@
+<p-toast></p-toast>
+<div
+  style="
+    background-image: url('./assets/laptop.jpg');
+    height: 100%;
+    color: white;
+  "
+>
+  <div class="container centered" style="text-align: center;">
+    <h1
+      style="
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-size: 40px;
+        font-family: 'Comic Sans MS';
+      "
+    >
+      Eureka 1.0
+    </h1>
+    <br />
+    <img
+      src="https://img.icons8.com/bubbles/100/000000/cloud-account-login-male.png"
+    />
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <span class="ui-float-label">
+        <input
+          formControlName="email"
+          id="float-input"
+          type="email"
+          class="form-control"
+          size="30"
+          pInputText
+        />
+        <label for="float-input">   Email</label> </span
+      ><br />
+      <input
+        formControlName="password"
+        pPassword
+        placeholder="Password"
+        type="password"
+        class="form-control"
+      /><br />
+      <button
+        pButton
+        type="submit"
+        class="ui-button-raised ui-button-rounded form-control"
+        style="font-weight: bold;"
+      >
+        Login to dashboard
+      </button>
+    </form>
+    <br />
+    <a [routerLink]="['/forgotpassword']" routerLinkActive="router-link-active"
+      >Forgot Password?</a
+    ><br /><br /><br /><br /><br /><br />
+    <span class="border-bottom" style="font-weight: bold; letter-spacing: 1px;"
+      >Don't have an account?<a
+        [routerLink]="['/register']"
+        routerLinkActive="router-link-active"
+        style="color: red;"
+      >
+        Sign Up</a
+      ></span
+    >
+  </div>
+</div>
