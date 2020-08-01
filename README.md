@@ -1,2 +1,2 @@
-# SIH2020_IC474_The_Pack_GitRepository_MLRI
+# SIH2020_IC474_The_Pack_GitRepository_MLRIT
 
