@@ -1,0 +1,29 @@
+<p-sidebar [(visible)]="display" >
+  <h2>Dashboard</h2>
+  <button class="btn btn-success form-control" style="border-radius: 0">
+    Home
+  </button>
+  <button class="btn btn-success form-control" style="border-radius: 0">
+    Profile
+  </button>
+  <button class="btn btn-success form-control" style="border-radius: 0">
+    Performance
+  </button>
+  <button class="btn btn-success form-control" style="border-radius: 0">
+    Study Mode
+  </button>
+  <button class="btn btn-success form-control" style="border-radius: 0">
+    Learn Mode
+  </button><br><br>
+  <button class="btn btn-warning form-control">
+    Log Out
+  </button><br><br><br><br><br>
+  <img src="assets/question.png" height="300px"/><br><br><br><br><br>
+  <b style="margin-left: 6%;">Made with <3 by Team Pack!</b>
+</p-sidebar>
+<div class="grad">
+  <button type="text" class="float-left btn-sty" (click)="displayChange();" pButton icon="pi pi-bars"></button>
+  <button type="text" class="float-right btn-sty" pButton icon="pi pi-sign-out"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="text" class="float-right btn-sty" pButton icon="pi pi-envelope"></button>
+  <br><br>
+</div>
