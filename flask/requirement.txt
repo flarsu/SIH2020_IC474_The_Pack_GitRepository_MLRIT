@@ -1,0 +1,9 @@
+wheel
+gunicorn
+flask
+flask-restful
+flask_cors
+nltk
+spacy
+python -m spacy download en 
+
