@@ -89,11 +89,11 @@
     </form>
   </div>
 </div>
-<div class="container text-center p-4" *ngIf="summary">
-  <span>Summary</span>
+<div class="container text-center pt-5" *ngIf="summary">
+  <span style="font-size: x-large; color: aqua;"><b>Summary</b></span>
   <br />
   <br />
-  <p class="justify-text p-4">
+  <p class="justify-text p-4 card" style="color: black; font-size: large;">
     {{ summary }}
   </p>
   <div class="clearfix p-3">
@@ -102,7 +102,3 @@
     </button>
   </div>
 </div>
-
-<!--<button (click)="downloadPDF()">-->
-<!--  pdf-->
-<!--</button>-->
