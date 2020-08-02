@@ -217,6 +217,24 @@ exports.getAllVideos = asyncHandler(async (req, res, next) => {
   });
 });
 
+// exports.translateAzure = asyncHandler(async (req, res, next) => {
+//   let result = await axios({
+//     method: 'post',
+//     url: `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=${req.body.toLang}`,
+//     data: {'url': `${imageLocation}`},
+//     headers: {
+//       'Ocp-Apim-Subscription-Key': process.env.ocrKey,
+//       'Ocp-Apim-Subscription-Region': 'location',
+//       'Content-type': 'application/json',
+//       'X-ClientTraceId': `${Date.now()}`
+//     },
+//   });
+//   res.status(200).json({
+//     success: true,
+//     result,
+//   });
+// });
+
 
 // eslint-disable-next-line require-jsdoc
 async function getAccessToken(subscriptionKey) {
@@ -278,6 +296,7 @@ async function textToSpeech(accessToken, text, lang, voice) {
   return {request, fileName};
 }
 
+
 async function ocr(imageLocation) {
   let result = await axios({
     method: 'post',
@@ -299,7 +318,6 @@ async function ocr(imageLocation) {
   }
   return text;
 }
-
 
 const download = async (url, path, callback) => {
   request.head(url, (err, res, body) => {
