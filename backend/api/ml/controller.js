@@ -106,6 +106,8 @@ exports.imageSearch = asyncHandler(async (req, res, next) => {
 
 exports.textToSpeech = asyncHandler(async (req, res, next) => {
   const text = req.body.text;
+  const result = await wordpos.getPOS(text);
+  console.log(result.adjectives);
   const token = await getAccessToken(textToSpeechSubscriptionKey);
   let lang;
   let voice;
