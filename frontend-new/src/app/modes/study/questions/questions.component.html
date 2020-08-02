@@ -1,38 +1,105 @@
-<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<p-toast [style]="{ marginTop: '80px' }"></p-toast>
 <app-navbar></app-navbar>
-<br>
+<br />
 <div class="container p-2">
-  <div style="padding-left: 16px">
-    <button *ngIf="!isupload" (click)="filePicker.click()" color="primary" mat-raised-button type="button">Upload Image</button>
-    <button *ngIf="isupload" (click)="filePicker.click()" color="primary" mat-raised-button type="button">
+  <h1
+    style="
+      font-weight: bold;
+      letter-spacing: 1.1px;
+      font-size: 33px;
+      color: white;
+    "
+    class="mt-5 text-center"
+  >
+    Hey , Welcome back !
+  </h1>
+  <h2
+    style="
+      font-weight: inherit;
+      letter-spacing: 1.1px;
+      font-size: 20px;
+      color: white;
+    "
+    class="text-center"
+  >
+    Now you can <b style="color: yellow;">Generate Questions </b> any of your
+    text and evaluate yourself !!!
+  </h2>
+  <br />
+  <div style="padding-left: 16px;">
+    <button
+      *ngIf="!isupload"
+      (click)="filePicker.click()"
+      color="accent"
+      mat-raised-button
+      type="button"
+      style="width: 185px;"
+    >
+      Upload Image
+    </button>
+    <button
+      *ngIf="isupload"
+      (click)="filePicker.click()"
+      color="primary"
+      mat-raised-button
+      type="button"
+    >
       <i class="fa fa-circle-o-notch fa-spin"></i>
     </button>
-    <input (change)="onUpload($event)" accept="image/*" capture="environment" type="file" #filePicker id="logo"/>
+    <input
+      (change)="onUpload($event)"
+      accept="image/*"
+      capture="environment"
+      type="file"
+      #filePicker
+      id="logo"
+    />
   </div>
   <h2 class="text-center">OR</h2>
   <div class="p-3">
     <form>
-      <textarea #questionText style="height: 300px;" class="form-control" placeholder="Enter Text here ...">{{imageText}}</textarea><br><br>
-      <button *ngIf="!loading" (click)="submit(questionText.value)" pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;">
+      <textarea
+        #questionText
+        style="height: 300px;"
+        class="form-control"
+        placeholder="Enter Text here ..."
+        >{{ imageText }}</textarea
+      ><br /><br />
+      <button
+        *ngIf="!loading"
+        (click)="submit(questionText.value)"
+        pButton
+        type="button"
+        class="ui-button-raised ui-button-rounded ui-button-success form-control"
+        style="font-weight: bold;"
+      >
         Generate Questions
       </button>
-      <button *ngIf="loading" pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;">
+      <button
+        *ngIf="loading"
+        pButton
+        type="button"
+        class="ui-button-raised ui-button-rounded ui-button-success form-control"
+        style="font-weight: bold;"
+      >
         <i class="fa fa-circle-o-notch fa-spin"></i>
         <!--        <p-progressSpinner></p-progressSpinner>-->
       </button>
     </form>
   </div>
 </div>
-<br>
-<br>
+<br />
+<br />
 <div class="container" *ngIf="gotResponse">
   <h3 class="text-center font-weight-bold">QUESTIONS</h3>
   <div class="text-justify text p-4">
-    <h4 *ngFor="let question of questions;">Q.{{question}}</h4>
-<!--    <input type="text" style="width: 100%" placeholder="Write your Answer here.">-->
+    <h4 *ngFor="let question of questions">Q.{{ question }}</h4>
+    <!--    <input type="text" style="width: 100%" placeholder="Write your Answer here.">-->
   </div>
   <div class="clearfix p-4">
-    <button class="float-right" mat-raised-button color="accent" ><a [href]="fileUrl" download="questions.txt">Download PDF</a></button>
-<!--    <button class="float-right" mat-raised-button color="primary">Submit Answers</button>-->
+    <button class="float-right" mat-raised-button color="accent">
+      <a [href]="fileUrl" download="questions.txt">Download PDF</a>
+    </button>
+    <!--    <button class="float-right" mat-raised-button color="primary">Submit Answers</button>-->
   </div>
 </div>

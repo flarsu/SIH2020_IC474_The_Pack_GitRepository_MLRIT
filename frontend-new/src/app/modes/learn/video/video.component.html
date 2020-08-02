@@ -2,16 +2,42 @@
 <app-navbar></app-navbar>
 <br />
 <div class="container">
+  <h1
+    style="
+      font-weight: bold;
+      letter-spacing: 1.1px;
+      font-size: 33px;
+      color: white;
+    "
+    class="mt-5 text-center"
+  >
+    Hey , Welcome back !
+  </h1>
+  <h2
+    style="
+      font-weight: inherit;
+      letter-spacing: 1.1px;
+      font-size: 20px;
+      color: white;
+    "
+    class="text-center"
+  >
+    Now you can <b style="color: yellow;">Generate video</b> from text on single
+    click !!!
+  </h2>
+  <br />
   <div style="padding-left: 16px;">
     <button
       *ngIf="!isupload"
       (click)="filePicker.click()"
-      color="primary"
+      color="accent"
       mat-raised-button
       type="button"
+      style="width: 185px; margin: auto;"
     >
       Upload Image
     </button>
+
     <button
       *ngIf="isupload"
       (click)="filePicker.click()"
@@ -37,9 +63,10 @@
     placeholder="Select a Language"
     optionLabel="name"
     [showClear]="true"
+    style="margin-left: 18px;"
   >
   </p-dropdown>
-  <h2 class="text-center">OR</h2>
+  <h2 class="text-center" style="color: darkorange;">OR</h2>
   <div class="p-3">
     <form>
       <textarea
@@ -67,15 +94,14 @@
         style="font-weight: bold;"
       >
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <!--        <p-progressSpinner></p-progressSpinner>-->
       </button>
     </form>
   </div>
 
-  <div *ngIf="videoLink">
+  <!-- <div *ngIf="videoLink">
     <a [href]="videoLink">Download File</a>
     <video width="320" height="240" controls>
       <source [src]="videoLink" type="video/mp4" />
     </video>
-  </div>
+  </div> -->
 </div>

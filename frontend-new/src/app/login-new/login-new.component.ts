@@ -2,56 +2,43 @@ import { Component, OnInit } from '@angular/core';
 import { FetchService } from '../services/fetch.service';
 import { AddService } from '../services/add.service';
 import { HttpClient } from '@angular/common/http';
-import { MessageService } from 'primeng/api';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-login-new',
+  templateUrl: './login-new.component.html',
+  styleUrls: ['./login-new.component.css'],
   providers: [MessageService],
 })
-export class LoginComponent implements OnInit {
+export class LoginNewComponent implements OnInit {
   constructor(
     private fetch: FetchService,
-    private formBuilder: FormBuilder,
     private addService: AddService,
     private http: HttpClient,
-    private messageService: MessageService,
-    private router: Router
+    private router: Router,
+    private messageService: MessageService
   ) {
     if (localStorage.getItem('token')) {
       this.router.navigate(['modeLatest']);
     }
   }
+  ngOnInit(): void {}
 
-  loginForm: FormGroup;
-
-  ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-    });
-  }
-  login() {
-    if (this.loginForm.invalid) {
-      return;
-    }
+  login(email, Password) {
     const data = {
-      email: this.loginForm.value.email,
-      password: this.loginForm.value.password,
+      email: email.value,
+      password: Password.value,
     };
     this.addService.login(data).subscribe(
       (res: any) => {
         if (res.success) {
           this.messageService.add({
             severity: 'success',
-            summary: 'Congratulations! Now you are logged In.',
+            summary: 'Congratulations! Now you can use EUREKA.',
           });
           this.router.navigate(['modeLatest']);
           localStorage.setItem('token', res.token);
-          this.reset();
         }
       },
       (error) => {
@@ -59,12 +46,7 @@ export class LoginComponent implements OnInit {
           severity: 'error',
           summary: error.error.error,
         });
-        this.reset();
       }
     );
-  }
-
-  reset() {
-    this.loginForm.reset();
   }
 }

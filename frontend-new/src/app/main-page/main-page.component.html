@@ -7,39 +7,47 @@
         font-size: 40px;
         font-family: 'Comic Sans MS';
       "
-      class="pt-5"
     >
       Eureka 1.0
     </h1>
     <br />
     <img
       class="image"
-      style="height: 500px; width: 100%;"
+      style="height: 500px; width: 60%;"
       src="./assets/faq-img-1.07207d3a.png"
-      style="width: 500px;"
     />
     <br /><br /><br />
     <form>
       <button
         pButton
         type="button"
-        class="ui-button-raised ui-button-rounded form-control"
-        style="font-weight: bold; width: 500px; margin: auto;"
-        [routerLink]="['/login']"
+        class="ui-button-raised ui-button-rounded form-control ui-button-info"
+        style="
+          font-weight: bold;
+          width: 600px;
+          margin: auto;
+          background-color: #a00836;
+        "
+        [routerLink]="['/loginLatest']"
         routerLinkActive="router-link-active"
       >
-        Login
+        LOGIN
       </button>
       <br />
       <button
         pButton
         type="button"
-        class="ui-button-raised ui-button-rounded form-control"
-        style="font-weight: bold; width: 500px; margin: auto;"
-        [routerLink]="['/register']"
+        class="ui-button-raised ui-button-rounded form-control ui-button-info"
+        style="
+          font-weight: bold;
+          width: 600px;
+          margin: auto;
+          background-color: #a00836;
+        "
+        [routerLink]="['/registerLatest']"
         routerLinkActive="router-link-active"
       >
-        Sign Up
+        SIGN UP
       </button>
       <br /><br />
     </form>
