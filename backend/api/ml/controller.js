@@ -143,7 +143,7 @@ exports.video = asyncHandler(async (req, res, next) => {
   console.log(req.body);
   Object.keys(req.body).forEach(function(key) {
     if (key !== 'audioFile' && key !== 'text') {
-      const loop = Math.ceil(key.split(' ').length*0.5);
+      const loop = Math.ceil(key.split(' ').length*0.4);
       images.push({
         path: `pictures/${req.body[key]}.jpeg`,
         caption: `${key}`,
@@ -241,7 +241,7 @@ async function textToSpeech(accessToken, text, lang, voice) {
       .att('xml:lang', lang)
       .att('name', voice)
       .ele('prosody')
-      .att('rate', '-14%')
+      .att('rate', '-18%')
       .att('pitch', '18%')
       .ele('break')
       .att('strength', 'none')
