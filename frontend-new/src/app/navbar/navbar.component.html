@@ -1,36 +1,86 @@
-<p-sidebar [(visible)]="display" >
+<p-sidebar [(visible)]="display">
   <h2>Dashboard</h2>
-  <button class="btn btn-success form-control" style="border-radius: 0" routerLink="/mode">
+  <button
+    class="btn btn-success form-control"
+    style="border-radius: 0;"
+    routerLink="/modeLatest"
+  >
     Home
   </button>
-  <button class="btn btn-success form-control" style="border-radius: 0">
+  <button class="btn btn-success form-control" style="border-radius: 0;">
     Profile
   </button>
-  <button class="btn btn-success form-control" style="border-radius: 0" routerLink="/performance">
+  <button
+    class="btn btn-success form-control"
+    style="border-radius: 0;"
+    routerLink="/performance"
+  >
     Performance
   </button>
-  <button class="btn btn-success form-control" style="border-radius: 0" routerLink="/study">
-    Study Mode
+  <button
+    class="btn btn-success form-control"
+    style="border-radius: 0;"
+    routerLink="/video"
+  >
+    Video Generation
   </button>
-  <button class="btn btn-success form-control" style="border-radius: 0" routerLink="/learn">
-    Learn Mode
-  </button><br><br>
+  <button
+    class="btn btn-success form-control"
+    style="border-radius: 0;"
+    routerLink="/summarize"
+  >
+    Summary Generation
+  </button>
+  <button class="btn btn-success form-control" style="border-radius: 0;">
+    Questions Generation
+  </button>
+  <button
+    class="btn btn-success form-control"
+    style="border-radius: 0;"
+    routerLink="/translate"
+  >
+    Translation
+  </button>
+  <button
+    class="btn btn-success form-control"
+    style="border-radius: 0;"
+    routerLink="/allvideos"
+  >
+    My Videos</button
+  ><br /><br />
   <button class="btn btn-warning form-control" (click)="logout()">
-    Log Out
-  </button><br><br><br><br><br>
-  <img src="assets/question.png" height="300px"/><br><br><br><br><br>
+    Log Out</button
+  ><br /><br /><br /><br /><br />
+  <img src="assets/question.png" height="300px" /><br /><br /><br /><br /><br />
   <b style="margin-left: 6%;">Made with <3 by Team Pack!</b>
 </p-sidebar>
-<div class="grad">
-  <button type="text" class="float-left btn-sty" (click)="displayChange();" pButton icon="pi pi-bars"></button>
-  <button type="text" class="float-right btn-sty" pButton icon="pi pi-sign-out" (click)="logout()"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button type="text" class="float-right btn-sty" pButton icon="pi pi-envelope" ></button>
-  <br><br>
+<div>
+  <button
+    type="text"
+    class="float-left btn-sty"
+    (click)="displayChange()"
+    pButton
+    icon="pi pi-bars"
+  ></button>
+  <button
+    type="text"
+    class="float-right btn-sty"
+    pButton
+    icon="pi pi-sign-out"
+    (click)="logout()"
+  ></button
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button
+    type="text"
+    class="float-right btn-sty"
+    pButton
+    icon="pi pi-envelope"
+  ></button>
+  <br /><br />
 </div>
-<div class="grad" style="height: 20%;color: white;">
-  <img class="centered-left" src="https://img.icons8.com/bubbles/100/000000/cloud-account-login-male.png"/>
-  <br><br><br>
-  <h2 class="centered-left">Hi Satya Prakash</h2><br>
-  <h5 class="centered-left">Lucknow, Uttar Pradesh</h5>
-</div>
-
+<!--<div style="height: 26%;color: white;">-->
+<!--  <img class="centered-left mt-4" src="https://img.icons8.com/bubbles/100/000000/cloud-account-login-male.png"/>-->
+<!--  <br><br><br>-->
+<!--  <h2 class="centered-left mt-4">Hi! {{name}}</h2><br>-->
+<!--  <h5 class="centered-left mt-4">{{email}}</h5>-->
+<!--</div>-->

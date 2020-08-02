@@ -1,53 +1,124 @@
-<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<p-toast [style]="{ marginTop: '80px' }"></p-toast>
 
 <app-navbar></app-navbar>
-<br>
-<div class="container p-2">
-  <div style="padding-top: 0px">
-  <span class="first">Choose the language in which you want your text </span>
-  <p-dropdown
-    [options]="cities"
-    [(ngModel)]="selectedCity"
-    placeholder="Select a Language"
-    optionLabel="name"
-    [showClear]="true"
+<br />
+<div class="container p-3">
+  <h1
+    style="
+      font-weight: bold;
+      letter-spacing: 1.1px;
+      font-size: 33px;
+      color: white;
+    "
+    class="text-center"
   >
+    Hey , Welcome back !
+  </h1>
+  <h2
+    style="
+      font-weight: inherit;
+      letter-spacing: 1.1px;
+      font-size: 20px;
+      color: white;
+    "
+    class="text-center"
+  >
+    Now you can <b style="color: yellow;">Translate </b> any of your text in
+    multiple languages !!!
+  </h2>
+  <br />
+  <div style="padding-top: 0px;" class="p-3">
+    <span class="first p-3 font-weight-bold" style="color: whitesmoke;"
+      >Choose the language in which you want your text
+    </span>
+    <p-dropdown
+      [options]="cities"
+      [(ngModel)]="selectedCity"
+      placeholder="Select a Language"
+      optionLabel="name"
+      [showClear]="true"
+    >
+    </p-dropdown>
 
-  </p-dropdown>
-
-  <p>Selected Language: {{selectedCity ? selectedCity.name : 'none'}}</p>
+    <p class="p-3 font-weight-bold" style="color: whitesmoke;">
+      Selected Language:
+      <span style="color: greenyellow;">{{
+        selectedCity ? selectedCity.name : "none"
+      }}</span>
+    </p>
   </div>
-  <br>
+  <div style="padding-left: 16px;">
+    <button
+      *ngIf="!isupload"
+      (click)="filePicker.click()"
+      color="accent"
+      mat-raised-button
+      type="button"
+      style="width: 185px;"
+    >
+      Upload Image
+    </button>
+    <button
+      *ngIf="isupload"
+      (click)="filePicker.click()"
+      color="primary"
+      mat-raised-button
+      type="button"
+    >
+      <i class="fa fa-circle-o-notch fa-spin"></i>
+    </button>
 
-<p-fileUpload name="demo[]" (onUpload)="onUpload($event)"
-              multiple=false accept="image/*" maxFileSize="1000000">
-  <ng-template pTemplate="content">
-    <ul *ngIf="uploadedFiles.length">
-      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-    </ul>
-  </ng-template>
-</p-fileUpload>
-  <br>
+    <input
+      (change)="onUpload($event)"
+      accept="image/*"
+      capture="environment"
+      type="file"
+      #filePicker
+      id="logo"
+    />
+  </div>
+  <h2 class="text-center" style="color: darkorange;">OR</h2>
   <div class="p-3">
-  <button pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;"
-  >
-    Translate
-  </button>
+    <form>
+      <textarea
+        #translateText
+        style="height: 300px;"
+        class="form-control"
+        placeholder="Enter Text here ..."
+        >{{ imageText }}</textarea
+      ><br /><br />
+      <button
+        *ngIf="!loading"
+        (click)="submit(translateText.value, selectedCity)"
+        pButton
+        type="button"
+        class="ui-button-raised ui-button-rounded ui-button-success form-control"
+        style="font-weight: bold;"
+      >
+        Translate Text
+      </button>
+      <button
+        *ngIf="loading"
+        pButton
+        type="button"
+        class="ui-button-raised ui-button-rounded ui-button-success form-control"
+        style="font-weight: bold;"
+      >
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+      </button>
+    </form>
   </div>
 </div>
-<br>
-<div class="container text-center p-4">
-  <span>Translated Text</span>
-  <br>
-  <br>
-<p>
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-  quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-  quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-  quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-  quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-</p>
+<br />
+<div class="container text-center p-4" *ngIf="submitted">
+  <span style="font-size: x-large; color: aqua;"><b>Translated Text</b></span>
+  <br /><br />
+  <p class="justify-text p-4 card" style="color: black; font-size: large;">
+    {{ translatedText }}
+  </p>
+  <div class="clearfix p-3">
+    <button class="float-right" mat-raised-button color="accent">
+      <a [href]="fileUrl" download="translatedFile.txt">Download PDF</a>
+    </button>
+  </div>
 </div>

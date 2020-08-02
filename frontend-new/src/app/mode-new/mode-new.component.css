@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1,h2 {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.row .box {
+  margin: 0 auto;
+  border: 1px solid;
+  border-radius: 20px;
+  width: 300px;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: color 0.5s ease-in;
+}
+.row .box .icon,
+.row .box .content {
+  margin: 50px 0;
+}
+.row .box .icon {
+  width: 80px;
+  height: 80px;
+  display: grid;
+  place-content: center;
+  font-size: 250%;
+  border-radius: 100%;
+  color: #f7f7f7;
+  transition: box-shadow 0.5s ease-in;
+}
+.row .box:hover {
+  color: #fff;
+}
+.row .box:nth-of-type(1) .icon {
+  background-color: #ff9900;
+  box-shadow: 0px 0px 0px 0px #ff9900;
+}
+.row .box:nth-of-type(1):hover .icon {
+  box-shadow: 0px 0px 0px 400px #ff9900;
+}
+.row .box:nth-of-type(2) .icon {
+  background-color: #0fe232;
+  box-shadow: 0px 0px 0px 0px #0fe232;
+}
+.row .box:nth-of-type(2):hover .icon {
+  box-shadow: 0px 0px 0px 400px #0fe232;
+}
+.row .box:nth-of-type(3) .icon {
+  background-color: #11adad;
+  box-shadow: 0px 0px 0px 0px #11adad;
+}
+.row .box:nth-of-type(3):hover .icon {
+  box-shadow: 0px 0px 0px 400px #11adad;
+}
+
+.row .box:nth-of-type(4) .icon {
+  background-color: deeppink;
+  box-shadow: 0px 0px 0px 0px deeppink;
+}
+.row .box:nth-of-type(4):hover .icon {
+  box-shadow: 0px 0px 0px 400px deeppink;
+}

@@ -1,6 +1,30 @@
 <app-navbar></app-navbar>
 
-<div class="container p-3">
+<h1
+  style="
+    font-weight: bold;
+    letter-spacing: 1.1px;
+    font-size: 33px;
+    color: white;
+  "
+  class="mt-5 text-center"
+>
+  Hey , Welcome back !
+</h1>
+<h2
+  style="
+    font-weight: inherit;
+    letter-spacing: 1.1px;
+    font-size: 20px;
+    color: white;
+  "
+  class="text-center"
+>
+  Here you can check your
+  <span style="color: yellow;"><b>work status</b></span> of whole month with !!!
+</h2>
+<br />
+
+<div class="container p-3 card">
   <p-chart type="radar" [data]="data" height="500px"></p-chart>
 </div>
-

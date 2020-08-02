@@ -13,6 +13,10 @@ import { TranslateComponent } from './modes/study/translate/translate.component'
 import { SummaryComponent } from './modes/study/summary/summary.component';
 import { QuestionsComponent } from './modes/study/questions/questions.component';
 import { VideoComponent } from './modes/learn/video/video.component';
+import { AllVideosComponent } from './modes/all-videos/all-videos.component';
+import { LoginNewComponent } from './login-new/login-new.component';
+import { RegisterNewComponent } from './register-new/register-new.component';
+import { ModeNewComponent } from './mode-new/mode-new.component';
 
 const routes: Routes = [
   {
@@ -24,8 +28,16 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
+    path: 'loginLatest',
+    component: LoginNewComponent,
+  },
+  {
     path: 'register',
     component: RegisterComponent,
+  },
+  {
+    path: 'registerLatest',
+    component: RegisterNewComponent,
   },
   {
     path: 'forgotpassword',
@@ -34,34 +46,52 @@ const routes: Routes = [
   {
     path: 'mode',
     component: ModePageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'modeLatest',
+    component: ModeNewComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'performance',
     component: PerformancePageComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'study',
     component: StudyComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'learn',
     component: LearnComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'allvideos',
+    component: AllVideosComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'translate',
     component: TranslateComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'summarize',
     component: SummaryComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'questions',
     component: QuestionsComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'video',
     component: VideoComponent,
+    canActivate: [AuthGuard],
   },
 ];
 

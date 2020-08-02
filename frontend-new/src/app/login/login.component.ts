@@ -3,12 +3,8 @@ import { FetchService } from '../services/fetch.service';
 import { AddService } from '../services/add.service';
 import { HttpClient } from '@angular/common/http';
 import { MessageService } from 'primeng/api';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
-import {Router} from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -23,8 +19,12 @@ export class LoginComponent implements OnInit {
     private addService: AddService,
     private http: HttpClient,
     private messageService: MessageService,
-    private router: Router,
-  ) {}
+    private router: Router
+  ) {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['modeLatest']);
+    }
+  }
 
   loginForm: FormGroup;
 
@@ -42,25 +42,29 @@ export class LoginComponent implements OnInit {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    this.addService.login(data).subscribe((res: any) => {
-      if (res.success){
+    this.addService.login(data).subscribe(
+      (res: any) => {
+        if (res.success) {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Congratulations! Now you are logged In.',
+          });
+          this.router.navigate(['modeLatest']);
+          localStorage.setItem('token', res.token);
+          this.reset();
+        }
+      },
+      (error) => {
         this.messageService.add({
-          severity: 'success',
-          summary: 'Congratulations! Now you can login.',
+          severity: 'error',
+          summary: error.error.error,
         });
-        this.router.navigate(['mode']);
-        localStorage.setItem('token', res.token);
         this.reset();
-      }}, (error) => {
-      this.messageService.add({
-        severity: 'error',
-        summary: error.error.error,
-      });
-      this.reset();
-    });
+      }
+    );
   }
 
-  reset(){
+  reset() {
     this.loginForm.reset();
   }
 }

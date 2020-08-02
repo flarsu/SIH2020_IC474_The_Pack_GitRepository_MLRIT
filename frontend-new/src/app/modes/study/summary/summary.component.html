@@ -1,35 +1,104 @@
-<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<p-toast [style]="{ marginTop: '80px' }"></p-toast>
 <app-navbar></app-navbar>
 
-<br>
+<br />
 <div class="container">
-<p-fileUpload name="demo[]" url="./upload.php" (onUpload)="onUpload($event)"
-              multiple="multiple" accept="image/*" maxFileSize="1000000">
-  <ng-template pTemplate="content">
-    <ul *ngIf="uploadedFiles.length">
-      <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-    </ul>
-  </ng-template>
-</p-fileUpload>
-<div class="p-3">
-<button pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;"
->
-  Generate Summary
-</button>
+  <h1
+    style="
+      font-weight: bold;
+      letter-spacing: 1.1px;
+      font-size: 33px;
+      color: white;
+    "
+    class="mt-5 text-center"
+  >
+    Hey , Welcome back !
+  </h1>
+  <h2
+    style="
+      font-weight: inherit;
+      letter-spacing: 1.1px;
+      font-size: 20px;
+      color: white;
+    "
+    class="text-center"
+  >
+    Now you can <b style="color: yellow;">Generate Summary</b> of any text with
+    single click !!!
+  </h2>
+  <br />
+  <div style="padding-left: 16px;">
+    <button
+      *ngIf="!isupload"
+      (click)="filePicker.click()"
+      color="accent"
+      mat-raised-button
+      type="button"
+      style="width: 185px;"
+    >
+      Upload Image
+    </button>
+    <button
+      *ngIf="isupload"
+      (click)="filePicker.click()"
+      color="primary"
+      mat-raised-button
+      type="button"
+    >
+      <i class="fa fa-circle-o-notch fa-spin"></i>
+    </button>
+    <input
+      (change)="onUpload($event)"
+      accept="image/*"
+      capture="environment"
+      type="file"
+      #filePicker
+      id="logo"
+    />
+  </div>
+  <h2 class="text-center" style="color: darkorange;">OR</h2>
+  <div class="p-3">
+    <form>
+      <textarea
+        #summaryText
+        style="height: 300px;"
+        class="form-control"
+        placeholder="Enter text here.."
+        >{{ imageText }}</textarea
+      ><br /><br />
+      <button
+        *ngIf="!loading"
+        (click)="submit(summaryText.value)"
+        pButton
+        type="button"
+        class="ui-button-raised ui-button-rounded ui-button-success form-control"
+        style="font-weight: bold;"
+      >
+        Generate Summary
+      </button>
+      <button
+        *ngIf="loading"
+        pButton
+        type="button"
+        class="ui-button-raised ui-button-rounded ui-button-success form-control"
+        style="font-weight: bold;"
+      >
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <!--        <p-progressSpinner></p-progressSpinner>-->
+      </button>
+    </form>
+  </div>
 </div>
-</div>
-<div class="container text-center p-4">
-  <span>Summmary</span>
-  <br>
-  <br>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt
-    quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!
+<div class="container text-center pt-5" *ngIf="summary">
+  <span style="font-size: x-large; color: aqua;"><b>Summary</b></span>
+  <br />
+  <br />
+  <p class="justify-text p-4 card" style="color: black; font-size: large;">
+    {{ summary }}
   </p>
+  <div class="clearfix p-3">
+    <button class="float-right" mat-raised-button color="accent">
+      <a [href]="fileUrl" download="summary.txt">Download PDF</a>
+    </button>
+  </div>
 </div>

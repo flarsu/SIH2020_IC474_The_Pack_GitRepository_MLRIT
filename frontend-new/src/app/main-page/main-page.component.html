@@ -1,35 +1,53 @@
-<div
-  style="
-    height: 100%;
-    color: black;
-  "
->
+<div style="height: 100%; color: black;">
   <div class="container centered" style="text-align: center;">
-    <h1 style="font-weight: bold; letter-spacing: 2px;font-size: 40px;font-family: 'Comic Sans MS'">Eureka 1.0</h1>
+    <h1
+      style="
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-size: 40px;
+        font-family: 'Comic Sans MS';
+      "
+    >
+      Eureka 1.0
+    </h1>
     <br />
-    <img class="image" style="height: 500px;width: 100%;" src="./assets/faq-img-1.07207d3a.png" />
-    <br><br><br>
+    <img
+      class="image"
+      style="height: 500px; width: 60%;"
+      src="./assets/faq-img-1.07207d3a.png"
+    />
+    <br /><br /><br />
     <form>
       <button
         pButton
         type="button"
-        class="ui-button-raised ui-button-rounded form-control"
-        style="font-weight: bold;"
-        [routerLink]="['/login']"
+        class="ui-button-raised ui-button-rounded form-control ui-button-info"
+        style="
+          font-weight: bold;
+          width: 600px;
+          margin: auto;
+          background-color: #a00836;
+        "
+        [routerLink]="['/loginLatest']"
         routerLinkActive="router-link-active"
       >
-        Login
+        LOGIN
       </button>
       <br />
       <button
         pButton
         type="button"
-        class="ui-button-raised ui-button-rounded form-control"
-        style="font-weight: bold;"
-        [routerLink]="['/register']"
+        class="ui-button-raised ui-button-rounded form-control ui-button-info"
+        style="
+          font-weight: bold;
+          width: 600px;
+          margin: auto;
+          background-color: #a00836;
+        "
+        [routerLink]="['/registerLatest']"
         routerLinkActive="router-link-active"
       >
-        Sign Up
+        SIGN UP
       </button>
       <br /><br />
     </form>
