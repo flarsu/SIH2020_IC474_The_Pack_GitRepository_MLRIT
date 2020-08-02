@@ -30,7 +30,14 @@ import { SummaryComponent } from './modes/study/summary/summary.component';
 import { QuestionsComponent } from './modes/study/questions/questions.component';
 import {DropdownModule} from 'primeng/dropdown';
 import { VideoComponent } from './modes/learn/video/video.component';
-
+import {ProgressSpinnerModule} from 'primeng/progressspinner';
+import {LightboxModule} from 'primeng/lightbox';
+import { AllVideosComponent } from './modes/all-videos/all-videos.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
+import { VPopUpComponent } from './modes/learn/v-pop-up/v-pop-up.component';
 
 
 @NgModule({
@@ -48,26 +55,33 @@ import { VideoComponent } from './modes/learn/video/video.component';
       TranslateComponent,
       SummaryComponent,
       QuestionsComponent,
-      VideoComponent
+      VideoComponent,
+      AllVideosComponent,
+      VPopUpComponent
     ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        ButtonModule,
-        InputTextModule,
-        PasswordModule,
-        HttpClientModule,
-        ToastModule,
-        FormsModule,
-        ReactiveFormsModule,
-        SidebarModule,
-        MenuModule,
-        ChartModule,
-        CardModule,
-        FileUploadModule,
-        DropdownModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    ButtonModule,
+    InputTextModule,
+    PasswordModule,
+    HttpClientModule,
+    ToastModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SidebarModule,
+    MenuModule,
+    ChartModule,
+    CardModule,
+    FileUploadModule,
+    DropdownModule,
+    ProgressSpinnerModule,
+    LightboxModule,
+    MatInputModule,
+    MatButtonModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

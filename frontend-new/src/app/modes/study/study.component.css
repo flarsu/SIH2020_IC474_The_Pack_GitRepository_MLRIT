@@ -1,0 +1,13 @@
+#logo {
+  visibility: hidden;
+  width: 20%;
+  padding: 0%;
+  margin: 0%;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .icon {
+
+  }
+}

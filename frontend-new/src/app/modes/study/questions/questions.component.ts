@@ -1,27 +1,55 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { AddService } from '../../../services/add.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-questions',
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css'],
   providers: [MessageService],
-
 })
 export class QuestionsComponent implements OnInit {
-  uploadedFiles: any[] = [];
+  constructor(
+    private messageService: MessageService,
+    private add: AddService,
+    private sanitizer: DomSanitizer
+  ) {}
+  public imageText: '';
+  public loading = false;
+  fileUrl;
+  gotResponse = false;
+  public questions;
+  public isupload = false;
 
-  constructor(private messageService: MessageService) { }
-
-  ngOnInit(): void {
-  }
-
-  onUpload(event) {
-    for (const file of event.files) {
-      this.uploadedFiles.push(file);
-    }
+  ngOnInit(): void {}
+  onUpload(event: any) {
+    this.isupload = true;
+    const ocrForm = new FormData();
+    ocrForm.append('image', event.target.files[0]);
     // apply OCR api here
-    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+    this.add.ocr(ocrForm).subscribe((res: any) => {
+      this.imageText = res.result;
+      this.isupload = false;
+    });
   }
-
+  submit(text) {
+    this.loading = true;
+    // add api here -- not available at backend now
+    // this.add.questions(data)
+    this.add.questionGen({ text }).subscribe((res: any) => {
+      let question = '';
+      this.questions = res.questions;
+      for (let i = 0; i < res.questions.length; i++) {
+        question += `Q${i + 1}.${res.questions[i]}\n`;
+      }
+      this.gotResponse = true;
+      this.loading = false;
+      const fileData = question;
+      const blob = new Blob([fileData], { type: 'pdf' });
+      this.fileUrl = this.sanitizer.bypassSecurityTrustResourceUrl(
+        window.URL.createObjectURL(blob)
+      );
+    });
+  }
 }

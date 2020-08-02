@@ -24,7 +24,11 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private messageService: MessageService,
     private router: Router,
-  ) {}
+  ) {
+    if (localStorage.getItem('token')){
+      this.router.navigate(['mode']);
+    }
+  }
 
   loginForm: FormGroup;
 

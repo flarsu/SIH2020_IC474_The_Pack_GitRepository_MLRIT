@@ -1,22 +1,38 @@
 <p-toast [style]="{marginTop: '80px'}"></p-toast>
-
 <app-navbar></app-navbar>
-
 <br>
 <div class="container p-2">
-  <p-fileUpload name="demo[]" (onUpload)="onUpload($event)"
-                multiple=false accept="image/*" maxFileSize="1000000">
-    <ng-template pTemplate="content">
-      <ul *ngIf="uploadedFiles.length">
-        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
-      </ul>
-    </ng-template>
-  </p-fileUpload>
-  <br>
-  <div class="p-3">
-    <button pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;"
-    >
-      Generate Questions
+  <div style="padding-left: 16px">
+    <button *ngIf="!isupload" (click)="filePicker.click()" color="primary" mat-raised-button type="button">Upload Image</button>
+    <button *ngIf="isupload" (click)="filePicker.click()" color="primary" mat-raised-button type="button">
+      <i class="fa fa-circle-o-notch fa-spin"></i>
     </button>
+    <input (change)="onUpload($event)" accept="image/*" capture="environment" type="file" #filePicker id="logo"/>
+  </div>
+  <h2 class="text-center">OR</h2>
+  <div class="p-3">
+    <form>
+      <textarea #questionText style="height: 300px;" class="form-control" placeholder="Enter Text here ...">{{imageText}}</textarea><br><br>
+      <button *ngIf="!loading" (click)="submit(questionText.value)" pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;">
+        Generate Questions
+      </button>
+      <button *ngIf="loading" pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;">
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <!--        <p-progressSpinner></p-progressSpinner>-->
+      </button>
+    </form>
+  </div>
+</div>
+<br>
+<br>
+<div class="container" *ngIf="gotResponse">
+  <h3 class="text-center font-weight-bold">QUESTIONS</h3>
+  <div class="text-justify text p-4">
+    <h4 *ngFor="let question of questions;">Q.{{question}}</h4>
+<!--    <input type="text" style="width: 100%" placeholder="Write your Answer here.">-->
+  </div>
+  <div class="clearfix p-4">
+    <button class="float-right" mat-raised-button color="accent" ><a [href]="fileUrl" download="questions.txt">Download PDF</a></button>
+<!--    <button class="float-right" mat-raised-button color="primary">Submit Answers</button>-->
   </div>
 </div>
