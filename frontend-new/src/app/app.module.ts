@@ -21,6 +21,17 @@ import {MenuModule} from 'primeng/menu';
 import { PerformancePageComponent } from './performance-page/performance-page.component';
 import {ChartModule} from 'primeng/chart';
 import { NavbarComponent } from './navbar/navbar.component';
+import { StudyComponent } from './modes/study/study.component';
+import { LearnComponent } from './modes/learn/learn.component';
+import { CardModule } from 'primeng/card';
+import {FileUploadModule} from 'primeng/fileupload';
+import { TranslateComponent } from './modes/study/translate/translate.component';
+import { SummaryComponent } from './modes/study/summary/summary.component';
+import { QuestionsComponent } from './modes/study/questions/questions.component';
+import {DropdownModule} from 'primeng/dropdown';
+import { VideoComponent } from './modes/learn/video/video.component';
+
+
 
 @NgModule({
   declarations:
@@ -31,23 +42,32 @@ import { NavbarComponent } from './navbar/navbar.component';
       ForgotPasswordComponent,
       ModePageComponent,
       PerformancePageComponent,
-      NavbarComponent
+      NavbarComponent,
+      StudyComponent,
+      LearnComponent,
+      TranslateComponent,
+      SummaryComponent,
+      QuestionsComponent,
+      VideoComponent
     ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    ButtonModule,
-    InputTextModule,
-    PasswordModule,
-    HttpClientModule,
-    ToastModule,
-    FormsModule,
-    ReactiveFormsModule,
-    SidebarModule,
-    MenuModule,
-    ChartModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        ButtonModule,
+        InputTextModule,
+        PasswordModule,
+        HttpClientModule,
+        ToastModule,
+        FormsModule,
+        ReactiveFormsModule,
+        SidebarModule,
+        MenuModule,
+        ChartModule,
+        CardModule,
+        FileUploadModule,
+        DropdownModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
 })

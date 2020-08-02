@@ -1,39 +1,6 @@
-<!--<p-sidebar [(visible)]="display" >-->
-<!--  <h2>Dashboard</h2>-->
-<!--  <button class="btn btn-success form-control" style="border-radius: 0">-->
-<!--    Home-->
-<!--  </button>-->
-<!--  <button class="btn btn-success form-control" style="border-radius: 0">-->
-<!--    Profile-->
-<!--  </button>-->
-<!--  <button class="btn btn-success form-control" style="border-radius: 0">-->
-<!--    Performance-->
-<!--  </button>-->
-<!--  <button class="btn btn-success form-control" style="border-radius: 0">-->
-<!--    Study Mode-->
-<!--  </button>-->
-<!--  <button class="btn btn-success form-control" style="border-radius: 0">-->
-<!--    Learn Mode-->
-<!--  </button><br><br>-->
-<!--  <button class="btn btn-warning form-control">-->
-<!--    Log Out-->
-<!--  </button><br><br><br><br><br>-->
-<!--  <img src="assets/question.png" height="300px"/><br><br><br><br><br>-->
-<!--  <b style="margin-left: 6%;">Made with <3 by Team Pack!</b>-->
-<!--</p-sidebar>-->
 <app-navbar></app-navbar>
-<div class="grad" style="height: 28%;color: white;">
-<!--  <button type="text" class="float-left btn-sty" (click)="displayChange();" pButton icon="pi pi-bars"></button>-->
-<!--  <button type="text" class="float-right btn-sty" pButton icon="pi pi-sign-out"></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
-<!--  <button type="text" class="float-right btn-sty" pButton icon="pi pi-envelope"></button>-->
-<!--  <br><br>-->
-  <img class="centered-left" src="https://img.icons8.com/bubbles/100/000000/cloud-account-login-male.png"/>
-  <br><br><br>
-  <h2 class="centered-left">Hi Satya Prakash</h2><br>
-  <h5 class="centered-left">Lucknow, Uttar Pradesh</h5>
-</div>
-<div class="container p-3">
-  <div class="shadow p-3" style="border-radius: 3%;">
+<div class="container p-3 pt-4">
+  <div class="shadow p-3 pt-4" style="border-radius: 3%;">
     <h2 class="text-center">Study Mode</h2>
     <span
       class="justify-content-around">
@@ -42,10 +9,12 @@
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     </span>
     <hr>
-    <button class="btn btn-warning" style="margin-left: 50%;transform: translate(-50%);">Get Started</button>
+    <button class="btn btn-warning" style="margin-left: 50%;transform: translate(-50%);"
+    routerLink="/study"
+    >Get Started</button>
   </div>
   <br>
-  <div class="shadow p-3" style="border-radius: 3%;">
+  <div class="shadow p-3 pt-5" style="border-radius: 3%;">
     <h2 class="text-center">Learning Mode</h2>
     <span
       class="justify-content-around">
@@ -54,7 +23,9 @@
       Lorem Ipsum is simply dummy text of the printing and typesetting industry.
     </span>
     <hr>
-    <button class="btn btn-warning" style="margin-left: 50%;transform: translate(-50%);">Get Started</button>
+    <button class="btn btn-warning" style="margin-left: 50%;transform: translate(-50%);"
+    routerLink="/learn"
+    >Get Started</button>
   </div>
   <br>
 </div>

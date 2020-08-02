@@ -1,0 +1,5 @@
+pip3 install wheel
+pip3 install gunicorn flask
+pip3 install flask-restful
+pip3 install flask_cors
+

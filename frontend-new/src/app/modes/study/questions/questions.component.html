@@ -1,0 +1,22 @@
+<p-toast [style]="{marginTop: '80px'}"></p-toast>
+
+<app-navbar></app-navbar>
+
+<br>
+<div class="container p-2">
+  <p-fileUpload name="demo[]" (onUpload)="onUpload($event)"
+                multiple=false accept="image/*" maxFileSize="1000000">
+    <ng-template pTemplate="content">
+      <ul *ngIf="uploadedFiles.length">
+        <li *ngFor="let file of uploadedFiles">{{file.name}} - {{file.size}} bytes</li>
+      </ul>
+    </ng-template>
+  </p-fileUpload>
+  <br>
+  <div class="p-3">
+    <button pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;"
+    >
+      Generate Questions
+    </button>
+  </div>
+</div>

@@ -63,11 +63,11 @@ app.use('/api/v1/user', users);
 app.use('/api/v1/ml', ml);
 
 // All other routes should redirect to the index.html
-app.get('*.*', express.static('./public/frontend')); // production
-
-app.all('*', (req, res) => {
-  res.status(200).sendFile('/', {root: './public/frontend'});
-}); // production
+// app.get('*.*', express.static('./public/frontend')); // production
+//
+// app.all('*', (req, res) => {
+//   res.status(200).sendFile('/', {root: './public/frontend'});
+// }); // production
 
 app.use(errorHandler);
 const PORT = process.env.PORT || 5000;

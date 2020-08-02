@@ -32,7 +32,6 @@ export class RegisterComponent implements OnInit {
     });
   }
   signUp(){
-    console.log(this.registerForm.value);
     if (this.registerForm.invalid){
       return;
     }
@@ -54,9 +53,9 @@ export class RegisterComponent implements OnInit {
           severity: 'success',
           summary: 'Congratulations! Now you can login.',
         });
+        this.router.navigate(['mode']);
         localStorage.setItem('token' , res.token);
         this.reset();
-        this.router.navigate(['mode']);
 
       }
       }, (error) =>  {
