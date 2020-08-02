@@ -54,37 +54,43 @@ class pos(my_dictionary):
             for i in image_list:
                 img.append(i.lower())
             new_images.append(img)   
-
-        print(new_images)
+  
         '''Subtitle''' 
+        
+
+
 
         for k in range(len(new_sentences)):
             
             new_text = new_sentences[k].split()
             cnt=0
-            
             for i in range(len(new_images[k])):
-
+                print('new_images--',new_images[k][i])
                 subtitle=[]
-
                 for j in range(cnt,len(new_text)):
-
                     if(new_images[k][i] != new_text[j]):
                         subtitle.append(new_text[j])
-
-                    elif(new_images[k][i] == new_text[j]):
-                        if(new_images[k][i]!=new_images[k][-1]):
+                    else:
+                        if(i!=len(new_images[k])-1):
                             subtitle.append(new_text[j])
                             ans = ' '.join(subtitle)
-                            cnt=j+1
+                            cnt = j+1
+                            dict_obj.add(ans,new_images[k][i])
+                            break
                         else:
                             
                             subtitle.extend(new_text[j:])
-                            ans = ' '.join(subtitle)    
-
-                        dict_obj.add(ans,new_images[k][i])
+                            ans = ' '.join(subtitle)
+                            dict_obj.add(ans,new_images[k][i])
+                            break
+                        
         return dict_obj
 
 # Initialize the class object 
+# text = '''Patty, a milkmaid milked her cow and had two full pails of fresh, creamy milk.
+#             She put both pails of milk on a stick and set off to the market to sell the milk.
+#              As she took steps towards the market, her thoughts took steps towards wealth. 
+#              On her way, she kept thinking about the money she would make from selling the milk Then she thought about what she would do with that money'''
 pos_obj = pos()
 # print(pos_obj.result(text))
+
