@@ -20,10 +20,13 @@ We have used the following technologies to implement our application
 3. **CLOUD**
 - Azure VM 
 - Azure Cognitive Services
+4. **MACHINE LEARNING MODELS**
+- T5
+- Spacy
 
 ### Future Scope
 - Create our own database with vectors.
-- Increase accuracy.
+- Increase accuracy.*(using neuralcoref ml model)*
 - Easy integration with existing platforms.
 
 ### THE PACK
