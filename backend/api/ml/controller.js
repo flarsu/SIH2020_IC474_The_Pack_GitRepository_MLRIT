@@ -241,7 +241,7 @@ async function textToSpeech(accessToken, text, lang, voice) {
       .att('xml:lang', lang)
       .att('name', voice)
       .ele('prosody')
-      .att('rate', '-19%')
+      .att('rate', '-14%')
       .att('pitch', '18%')
       .ele('break')
       .att('strength', 'none')
