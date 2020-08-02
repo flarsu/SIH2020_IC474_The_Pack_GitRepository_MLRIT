@@ -143,7 +143,7 @@ exports.video = asyncHandler(async (req, res, next) => {
   console.log(req.body);
   Object.keys(req.body).forEach(function(key) {
     if (key !== 'audioFile' && key !== 'text') {
-      const loop = Math.ceil(key.split(' ').length*0.3);
+      const loop = Math.ceil(key.split(' ').length*0.5);
       images.push({
         path: `pictures/${req.body[key]}.jpeg`,
         caption: `${key}`,
