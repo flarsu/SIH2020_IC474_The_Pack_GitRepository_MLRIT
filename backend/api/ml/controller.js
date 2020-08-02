@@ -51,7 +51,7 @@ exports.ocr = asyncHandler(async (req, res, next) => {
 exports.summary = asyncHandler(async (req, res, next) => {
   const text = req.body.text;
   const textArray = text.split('.');
-  const Summarizer = new SummarizerManager(text, textArray.length / 2);
+  const Summarizer = new SummarizerManager(text, (textArray.length / 2)+1);
   const summary = Summarizer.getSummaryByFrequency().summary;
   res.status(200).json({
     success: true,
@@ -106,6 +106,8 @@ exports.imageSearch = asyncHandler(async (req, res, next) => {
 
 exports.textToSpeech = asyncHandler(async (req, res, next) => {
   const text = req.body.text;
+  const result = await wordpos.getPOS(text);
+  console.log(result.adjectives);
   const token = await getAccessToken(textToSpeechSubscriptionKey);
   let lang;
   let voice;
@@ -141,7 +143,7 @@ exports.video = asyncHandler(async (req, res, next) => {
   console.log(req.body);
   Object.keys(req.body).forEach(function(key) {
     if (key !== 'audioFile' && key !== 'text') {
-      const loop = Math.ceil(key.split(' ').length*0.3);
+      const loop = Math.ceil(key.split(' ').length*0.4);
       images.push({
         path: `pictures/${req.body[key]}.jpeg`,
         caption: `${key}`,
@@ -239,7 +241,7 @@ async function textToSpeech(accessToken, text, lang, voice) {
       .att('xml:lang', lang)
       .att('name', voice)
       .ele('prosody')
-      .att('rate', '-21%')
+      .att('rate', '-18%')
       .att('pitch', '18%')
       .ele('break')
       .att('strength', 'none')
