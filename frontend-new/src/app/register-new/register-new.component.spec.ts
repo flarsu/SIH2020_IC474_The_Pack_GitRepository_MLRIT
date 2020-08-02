@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VPopUpComponent } from './v-pop-up.component';
+import { RegisterNewComponent } from './register-new.component';
 
-describe('VPopUpComponent', () => {
-  let component: VPopUpComponent;
-  let fixture: ComponentFixture<VPopUpComponent>;
+describe('RegisterNewComponent', () => {
+  let component: RegisterNewComponent;
+  let fixture: ComponentFixture<RegisterNewComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VPopUpComponent ]
+      declarations: [ RegisterNewComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VPopUpComponent);
+    fixture = TestBed.createComponent(RegisterNewComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

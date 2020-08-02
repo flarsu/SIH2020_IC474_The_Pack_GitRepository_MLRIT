@@ -1,0 +1,116 @@
+<p-toast></p-toast>
+
+<form class="form-signin centered">
+  <p class="text-center">
+    <img src="assets/login_icon.png" height="350" width="400" />
+  </p>
+  <div class="input-group-login sombreado-input">
+    <div class="input-group-prepend-login">
+      <span class="input-group-text fondo-icon">
+        <i class="fas fa-user"></i>
+      </span>
+    </div>
+    <input
+      type="email"
+      class="border-0-login form-control-login input-border-none"
+      placeholder="Email"
+      #email
+    />
+  </div>
+  <br />
+  <div class="input-group-login sombreado-input">
+    <div class="input-group-prepend-login">
+      <span class="input-group-text fondo-icon">
+        <i class="fas fa-user"></i>
+      </span>
+    </div>
+    <input
+      type="text"
+      class="border-0-login form-control-login input-border-none"
+      placeholder="Username"
+      #username
+    />
+  </div>
+
+  <br />
+  <div class="input-group-login sombreado-input">
+    <div class="input-group-prepend-login">
+      <span class="input-group-text fondo-icon">
+        <i class="fas fa-user"></i>
+      </span>
+    </div>
+    <input
+      type="text"
+      class="border-0-login form-control-login input-border-none"
+      placeholder="Full Name"
+      #fullName
+    />
+  </div>
+
+  <br />
+  <div class="input-group-login sombreado-input">
+    <div class="input-group-prepend-login">
+      <span class="input-group-text fondo-icon">
+        <i class="fas fa-lock"></i>
+      </span>
+    </div>
+    <input
+      type="password"
+      class="border-0-login form-control-login input-border-none"
+      placeholder="Password"
+      aria-label="Username"
+      #password
+    />
+  </div>
+
+  <br />
+  <div class="input-group-login sombreado-input">
+    <div class="input-group-prepend-login">
+      <span class="input-group-text fondo-icon">
+        <i class="fas fa-lock"></i>
+      </span>
+    </div>
+    <input
+      type="password"
+      class="border-0-login form-control-login input-border-none"
+      placeholder="Confirm Password"
+      aria-label="Username"
+      #cnfPassword
+    />
+  </div>
+
+  <br />
+  <div style="color: black;">
+    <p class="text-center">
+      <button
+        class="button-signup fondo-color-signup"
+        (click)="signup(email, username, fullName, password, cnfPassword)"
+      >
+        <b>SIGN UP</b>
+      </button>
+    </p>
+    <p class="text-center">
+      Already have an account? <a routerLink="/loginLatest"> Sign In</a>
+    </p>
+    <p class="text-center">OR</p>
+    <div class="icons-position">
+      <a href="#" class="icon-social">
+        <p class="text-center pt-3">
+          <i class="fab fa-facebook-f fa-lg" style="color: #a00836;"></i>
+        </p>
+      </a>
+
+      <a href="#" class="icon-social">
+        <p class="text-center pt-3">
+          <i class="fab fa-github fa-lg" style="color: #a00836;"></i>
+        </p>
+      </a>
+
+      <a href="#" class="icon-social">
+        <p class="text-center pt-3">
+          <i class="fab fa-google fa-lg" style="color: #a00836;"></i>
+        </p>
+      </a>
+    </div>
+  </div>
+</form>

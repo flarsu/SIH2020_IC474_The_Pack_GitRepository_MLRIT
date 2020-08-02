@@ -1,48 +1,50 @@
 <app-navbar></app-navbar>
+
+<!--<div class="container pt-4">-->
+<!--  <p-card header="Generate Questions" [style]="{width: '380px'}">-->
+<!--    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt-->
+<!--      quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div>-->
+<!--    <div class="pt-2">-->
+<!--      <button pButton type="button" routerLink="/questions" label="Try Questions" class="ui-button-raised ui-button-success"></button>-->
+<!--    </div>-->
+<!--  </p-card>-->
+<!--<br>-->
+<!--  <p-card header="Summarize " [style]="{width: '380px'}">-->
+<!--    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt-->
+<!--      quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div>-->
+<!--    <div class="pt-2">-->
+<!--      <button pButton type="button" routerLink="/summarize" label="Try Summarize" class="ui-button-raised ui-button-success"></button>-->
+<!--    </div>-->
+<!--  </p-card>-->
+<!--  <br>-->
+<!--  <p-card header="Translate " [style]="{width: '380px'}">-->
+<!--    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt-->
+<!--      quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque quas!</div>-->
+<!--    <div class="pt-2">-->
+<!--      <button pButton type="button" routerLink="/translate" label="Try Translation" class="ui-button-raised ui-button-success"></button>-->
+<!--    </div>-->
+<!--  </p-card>-->
+<!--  <br>-->
+<!--</div>-->
 <div class="container p-5">
   <div class="col-md-12 row p-3 icons">
-    <div class="col-md-3 shadow m-3">
-      <img
-        src="./assets/summar.jpg"
-        style="width: 100%; height: 100%; cursor: pointer;"
-      />
-      <h2
-        class="text-center m-2"
-        routerLink="/summarize"
-        style="cursor: pointer;"
-      >
-        Summarization
-      </h2>
-    </div>
-    <br />
-    <br />
-    <div class="col-md-3 shadow m-3">
-      <img
-        src="./assets/summ.jpg"
-        style="width: 100%; height: 100%; cursor: pointer;"
-      />
-      <h2
-        class="text-center m-2"
-        routerLink="/questions"
-        style="cursor: pointer;"
-      >
-        Questions
-      </h2>
-    </div>
-    <br />
-    <div class="col-md-3 shadow m-3">
-      <img
-        src="./assets/lang.jpg"
-        style="width: 100%; height: 100%; cursor: pointer;"
-      />
-      <h2
-        class="text-center m-2"
-        routerLink="/translate"
-        style="cursor: pointer;"
-      >
-        Translation
-      </h2>
-    </div>
-    <br />
+  <div class="col-md-3 shadow m-3">
+    <img src="./assets/summar.jpg"  style="width: 100%;height: 100% ;cursor: pointer" routerLink="/summarize">
+    <h2 class="text-center m-2" routerLink="/summarize" style="cursor: pointer">Summarization</h2>
+  </div>
+  <br>
+    <br>
+  <div class="col-md-3 shadow m-3">
+    <img src="./assets/summ.jpg"  style="width: 100%;height: 100% ;cursor: pointer" routerLink="/questions">
+    <h2 class="text-center m-2" routerLink="/questions" style="cursor: pointer">Questions</h2>
+  </div>
+    <br>
+  <div class="col-md-3 shadow m-3">
+    <img src="./assets/lang.jpg"  style="width: 100%;height: 100% ;cursor: pointer" routerLink="/translate">
+    <h2 class="text-center m-2" routerLink="/translate" style="cursor: pointer">Translation</h2>
+  </div>
+    <br>
   </div>
 </div>
+
+

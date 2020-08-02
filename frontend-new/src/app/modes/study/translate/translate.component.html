@@ -1,51 +1,124 @@
-<p-toast [style]="{marginTop: '80px'}"></p-toast>
+<p-toast [style]="{ marginTop: '80px' }"></p-toast>
 
 <app-navbar></app-navbar>
-<br>
+<br />
 <div class="container p-3">
-  <div style="padding-top: 0px" class="p-3">
-  <span class="first">Choose the language in which you want your text </span>
-  <p-dropdown
-    [options]="cities"
-    [(ngModel)]="selectedCity"
-    placeholder="Select a Language"
-    optionLabel="name"
-    [showClear]="true"
+  <h1
+    style="
+      font-weight: bold;
+      letter-spacing: 1.1px;
+      font-size: 33px;
+      color: white;
+    "
+    class="text-center"
   >
-  </p-dropdown>
+    Hey , Welcome back !
+  </h1>
+  <h2
+    style="
+      font-weight: inherit;
+      letter-spacing: 1.1px;
+      font-size: 20px;
+      color: white;
+    "
+    class="text-center"
+  >
+    Now you can <b style="color: yellow;">Translate </b> any of your text in
+    multiple languages !!!
+  </h2>
+  <br />
+  <div style="padding-top: 0px;" class="p-3">
+    <span class="first p-3 font-weight-bold" style="color: whitesmoke;"
+      >Choose the language in which you want your text
+    </span>
+    <p-dropdown
+      [options]="cities"
+      [(ngModel)]="selectedCity"
+      placeholder="Select a Language"
+      optionLabel="name"
+      [showClear]="true"
+    >
+    </p-dropdown>
 
-  <p class="pt-1">Selected Language: {{selectedCity ? selectedCity.name : 'none'}}</p>
+    <p class="p-3 font-weight-bold" style="color: whitesmoke;">
+      Selected Language:
+      <span style="color: greenyellow;">{{
+        selectedCity ? selectedCity.name : "none"
+      }}</span>
+    </p>
   </div>
-  <div style="padding-left: 16px">
-    <button *ngIf="!isupload" (click)="filePicker.click()" color="primary" mat-raised-button type="button">Upload Image</button>
-    <button *ngIf="isupload" (click)="filePicker.click()" color="primary" mat-raised-button type="button">
+  <div style="padding-left: 16px;">
+    <button
+      *ngIf="!isupload"
+      (click)="filePicker.click()"
+      color="accent"
+      mat-raised-button
+      type="button"
+      style="width: 185px;"
+    >
+      Upload Image
+    </button>
+    <button
+      *ngIf="isupload"
+      (click)="filePicker.click()"
+      color="primary"
+      mat-raised-button
+      type="button"
+    >
       <i class="fa fa-circle-o-notch fa-spin"></i>
     </button>
 
-
-    <input (change)="onUpload($event)" accept="image/*" capture="environment" type="file" #filePicker id="logo"/>
+    <input
+      (change)="onUpload($event)"
+      accept="image/*"
+      capture="environment"
+      type="file"
+      #filePicker
+      id="logo"
+    />
   </div>
-  <h2 class="text-center">OR</h2>
+  <h2 class="text-center" style="color: darkorange;">OR</h2>
   <div class="p-3">
     <form>
-      <textarea #translateText style="height: 300px;" class="form-control" placeholder="Enter Text here ...">{{imageText}}</textarea><br><br>
-      <button *ngIf="!loading" (click)="submit(translateText.value , selectedCity)" pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;">
+      <textarea
+        #translateText
+        style="height: 300px;"
+        class="form-control"
+        placeholder="Enter Text here ..."
+        >{{ imageText }}</textarea
+      ><br /><br />
+      <button
+        *ngIf="!loading"
+        (click)="submit(translateText.value, selectedCity)"
+        pButton
+        type="button"
+        class="ui-button-raised ui-button-rounded ui-button-success form-control"
+        style="font-weight: bold;"
+      >
         Translate Text
       </button>
-      <button *ngIf="loading" pButton type="button" class="ui-button-raised ui-button-rounded ui-button-success form-control" style="font-weight: bold;">
+      <button
+        *ngIf="loading"
+        pButton
+        type="button"
+        class="ui-button-raised ui-button-rounded ui-button-success form-control"
+        style="font-weight: bold;"
+      >
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <!--        <p-progressSpinner></p-progressSpinner>-->
       </button>
     </form>
   </div>
 </div>
-<br>
+<br />
 <div class="container text-center p-4" *ngIf="submitted">
   <h4 class="font-weight-bold">TRANSLATED TEXT</h4>
-  <br>
-<p>
-  {{translatedText}}</p>
+  <br />
+  <p>
+    {{ translatedText }}
+  </p>
   <div class="clearfix p-3">
-    <button class="float-right" mat-raised-button color="accent" ><a [href]="fileUrl" download="translatedFile.txt">Download PDF</a></button>
+    <button class="float-right" mat-raised-button color="accent">
+      <a [href]="fileUrl" download="translatedFile.txt">Download PDF</a>
+    </button>
   </div>
 </div>

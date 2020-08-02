@@ -1,4 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family:"Comic Sans MS", sans-serif;font-size: large; }
+html, body {
+  height: 100%;
+  background-color: #ff7700;
+  background-image: url("assets/b9c8f893c9a782033a01f47e0c0b1d6e.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-size: large;
+}
