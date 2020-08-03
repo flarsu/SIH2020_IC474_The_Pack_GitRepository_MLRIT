@@ -51,15 +51,13 @@ exports.ocr = asyncHandler(async (req, res, next) => {
 exports.summary = asyncHandler(async (req, res, next) => {
   const text = req.body.text;
   const textArray = text.split('.');
-  if (textArray.length < 4) {
-    return next(new ErrorResponse('The text length is too short to be summarized.', 400));
-  }
-  const Summarizer = new SummarizerManager(text, (textArray.length / 4));
-  const summary = await Summarizer.getSummaryByRank();
-  // console.log(summary);
+  const Summarizer = new SummarizerManager(text, (textArray.length / 2));
+  // const summary = await Summarizer.getSummaryByRank();
+  const summary = Summarizer.getSummaryByFrequency().summary;
+  console.log(summary);
   res.status(200).json({
     success: true,
-    summary: summary.summary,
+    summary,
   });
 });
 
