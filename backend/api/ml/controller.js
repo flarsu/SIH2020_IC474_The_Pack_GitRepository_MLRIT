@@ -65,7 +65,10 @@ exports.summary = asyncHandler(async (req, res, next) => {
 
 exports.translate = asyncHandler(async (req, res, next) => {
   const text = req.body.text;
-  const toLang = req.body.toLang;
+  let toLang = req.body.toLang;
+  if (!req.body.toLang) {
+    toLang = 'en';
+  }
   const result = await tr(text, {from: 'auto', to: toLang});
   res.status(200).json({
     success: true,
