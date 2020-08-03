@@ -22,8 +22,8 @@
     "
     class="text-center"
   >
-    Now you can <b style="color: yellow;">Generate Questions </b> any of your
-    text and evaluate yourself !!!
+    Now you can <b style="color: yellow;">Generate Questions </b> from any of
+    your text and evaluate yourself !!!
   </h2>
   <br />
   <div style="padding-left: 16px;">
@@ -91,9 +91,11 @@
 <br />
 <br />
 <div class="container" *ngIf="gotResponse">
-  <h3 class="text-center font-weight-bold">QUESTIONS</h3>
-  <div class="text-justify text p-4">
-    <h4 *ngFor="let question of questions">Q.{{ question }}</h4>
+  <h3 class="text-center font-weight-bold" style="color: aqua;">QUESTIONS</h3>
+  <div class="text-justify text p-4 card">
+    <h4 *ngFor="let question of questions">{{ question }}</h4>
+    <!-- <h4 *ngFor="let i of qarray">i</h4> -->
+
     <!--    <input type="text" style="width: 100%" placeholder="Write your Answer here.">-->
   </div>
   <div class="clearfix p-4">
