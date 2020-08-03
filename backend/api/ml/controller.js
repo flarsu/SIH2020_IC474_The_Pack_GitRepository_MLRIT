@@ -54,10 +54,10 @@ exports.summary = asyncHandler(async (req, res, next) => {
   const Summarizer = new SummarizerManager(text, (textArray.length / 2));
   // const summary = await Summarizer.getSummaryByRank();
   const summary = Summarizer.getSummaryByFrequency().summary;
-  // console.log(summary);
+  console.log(summary);
   res.status(200).json({
     success: true,
-    summary: summary.summary,
+    summary,
   });
 });
 
