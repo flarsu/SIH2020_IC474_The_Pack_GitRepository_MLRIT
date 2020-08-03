@@ -1,7 +1,7 @@
 # EUREKA !
 
 An e-learning application for students of any age and field. It allows the user to generate learning material by clicking only a picture of the textual content.
-
+Visit to use our platform http://52.146.33.103:3000/
 ### Features 
 We have mainly developed 4 features
 1. **VIDEO GENERATION** *the user can directly generate video of the texual content*
