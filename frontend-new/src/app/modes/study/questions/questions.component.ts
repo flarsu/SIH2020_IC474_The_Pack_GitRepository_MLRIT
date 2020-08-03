@@ -21,6 +21,7 @@ export class QuestionsComponent implements OnInit {
   gotResponse = false;
   public questions;
   public isupload = false;
+  public qarray: any = [];
 
   ngOnInit(): void {}
   onUpload(event: any) {
@@ -33,6 +34,11 @@ export class QuestionsComponent implements OnInit {
       this.isupload = false;
     });
   }
+
+  onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+
   submit(text) {
     this.loading = true;
     // add api here -- not available at backend now
@@ -41,8 +47,11 @@ export class QuestionsComponent implements OnInit {
       let question = '';
       this.questions = res.questions;
       for (let i = 0; i < res.questions.length; i++) {
-        question += `Q${i + 1}.${res.questions[i]}\n`;
+        question = `Q${i + 1}.  ${res.questions[i][0]}\n`;
+        this.qarray.push(question);
       }
+      this.questions = this.qarray.filter(this.onlyUnique);
+      console.log(this.qarray);
       this.gotResponse = true;
       this.loading = false;
       const fileData = question;
